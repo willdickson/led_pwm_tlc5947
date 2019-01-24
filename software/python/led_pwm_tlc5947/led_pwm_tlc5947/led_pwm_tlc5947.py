@@ -18,7 +18,7 @@ import atexit
 
 class PwmController(serial.Serial):
 
-    """Provides a high level interface  performing serial communications with the Rodeostat. 
+    """Provides a high level interface  performing serial communications with the tlc5947 led driver. 
 
     :param str port: serial port associated with the Rodeostat, e.g. /dev/ttyACM0, COM1, etc.
 
