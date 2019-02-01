@@ -16,6 +16,10 @@ import json
 import atexit
 
 
+class PwmControllerException(Exception):
+    pass
+
+
 class PwmController(serial.Serial):
 
     """Provides a high level interface  performing serial communications with the tlc5947 led driver. 
@@ -112,7 +116,7 @@ class PwmController(serial.Serial):
     def check_for_success(self,rsp_dict):
         success = rsp_dict["success"]
         if not success: 
-            raise IOError('{0}, {1}'.format(rsp_dict['message'], rsp_dict))
+            raise PwmControllerException(rsp_dict['message'])
 
 
 
